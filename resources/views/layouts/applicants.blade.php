@@ -38,56 +38,17 @@
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
-    <div class="modal-header">
-        <h1 class="modal-title fs-5" id="staticBackdropLabel">Student Information</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
       <div class="modal-body">
         <div class="container-fluid">
-        <div class="row justify-content-center">
+        <div class="row">
          
           @foreach($enrollments as $enrollment)
-         
-            <div class="row gy-2">
-              <ul class="list-group list-group-horizontal ">
-                <li class="list-group-item w-50">First Name</li>
-                <li class="list-group-item w-50">{{ $enrollment->first_name }}</li>
-              </ul>
-              <ul class="list-group list-group-horizontal ">
-                <li class="list-group-item w-50">Last Name</li>
-                <li class="list-group-item w-50">{{ $enrollment->last_name }}</li>
-              </ul>
-              <ul class="list-group list-group-horizontal ">
-                <li class="list-group-item w-50">Course</li>
-                <li class="list-group-item w-50">{{ $enrollment->course }}</li>
-              </ul>
-              <ul class="list-group list-group-horizontal ">
-                <li class="list-group-item w-50">Age</li>
-                <li class="list-group-item w-50">{{ $enrollment->age }}</li>
-              </ul>
-              <ul class="list-group list-group-horizontal ">
-                <li class="list-group-item w-50">Gender</li>
-                <li class="list-group-item w-50">{{ $enrollment->gender }}</li>
-              </ul>
-              <ul class="list-group list-group-horizontal ">
-                <li class="list-group-item w-50">Barangay</li>
-                <li class="list-group-item w-50">{{ $enrollment->barangay }}</li>
-              </ul>
-              <ul class="list-group list-group-horizontal ">
-                <li class="list-group-item w-50">Municipality</li>
-                <li class="list-group-item w-50">{{ $enrollment->municipality }}</li>
-              </ul>
-              <ul class="list-group list-group-horizontal ">
-                <li class="list-group-item w-50">Province</li>
-                <li class="list-group-item w-50">{{ $enrollment->province }}</li>
-              </ul>
-            </div>
-        
-              
-              
-              
-              
-              
+              <h3>{{ $enrollment->first_name }}</h3>
+              <h3>{{ $enrollment->last_name }}</h3>
+              <h3>{{ $enrollment->course }}</h3>
+              <h3>{{ $enrollment->age }}</h3>
+              <h3>{{ $enrollment->first_name }}</h3>
+              <h3>{{ $enrollment->first_name }}</h3>
           @endforeach
           
         </div>
