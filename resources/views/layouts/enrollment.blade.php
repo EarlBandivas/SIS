@@ -4,7 +4,7 @@
 
 
 
-<form action="{{ route('enroll.store') }}" method="POST">
+<form action="{{ route('enrollments.store') }}" method="POST">
     @csrf
     <div class="container-sm row justify-content-center">
         <div class="col-9">

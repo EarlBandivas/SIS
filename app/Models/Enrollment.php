@@ -7,12 +7,21 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Enrollment extends Model
 {
-    //
-    use HasFactory;
+    protected $primaryKey = 'user_id'; // Set user_id as the primary key
+    public $incrementing = false; // Disable auto-incrementing for the primary key
+    protected $keyType = 'integer'; // Set the key type
 
     protected $fillable = [
-        'first_name', 'middle_name', 'last_name', 'age', 
-        'barangay', 'municipality', 'province', 
-        'gender', 'contact_number', 'course'
+        'user_id',
+        'first_name',
+        'middle_name',
+        'last_name',
+        'age',
+        'barangay',
+        'municipality',
+        'province',
+        'gender',
+        'contact_number',
+        'course',
     ];
 }

@@ -40,11 +40,16 @@ Route::get('/dashboard', [HomeController::class, 'index'])
     ->middleware(['auth', 'verified'])
     ->name('dashboard');
 
+   
+    Route::get('/enrollment/user/{user_id}', [EnrollmentController::class, 'getEnrollmentByUser']);
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    Route::get('/enroll', [EnrollmentController::class, 'create'])->name('enrollments.create');
+    Route::post('/enroll', [EnrollmentController::class, 'store'])->name('enrollments.store');
+   
 });
 
 Route::post('/logout', [LoginController::class, 'logout'])->name('logout');

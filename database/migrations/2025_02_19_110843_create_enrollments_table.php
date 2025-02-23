@@ -12,7 +12,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('enrollments', function (Blueprint $table) {
-            $table->id();
+         
+            $table->unsignedBigInteger('user_id')->primary();
             $table->string('first_name');
             $table->string('middle_name')->nullable();
             $table->string('last_name');
@@ -24,6 +25,9 @@ return new class extends Migration
             $table->string('contact_number');
             $table->string('course');
             $table->timestamps();
+
+
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 
