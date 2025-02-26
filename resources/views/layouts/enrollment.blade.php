@@ -2,7 +2,7 @@
 
 @section('content')
 
-
+@include('components.alerts')
 
 <form action="{{ route('enrollments.store') }}" method="POST">
     @csrf

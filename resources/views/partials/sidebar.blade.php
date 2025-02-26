@@ -25,7 +25,7 @@
       </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="">
+      <a class="nav-link" href="{{ route('profile') }}">
         <i class="mdi mdi-account menu-icon"></i>
         <span class="menu-title">Profile</span>
       </a>
@@ -39,6 +39,12 @@
       <a class="nav-link" href="{{ route('applicants.index') }}">
         <i class="mdi mdi-account-group menu-icon"></i>
         <span class="menu-title">View Applicants</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{{ route('applicants.index') }}">
+        <i class="mdi mdi-account-group menu-icon"></i>
+        <span class="menu-title">Class List</span>
       </a>
     </li>
     @endif
