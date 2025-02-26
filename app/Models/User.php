@@ -25,6 +25,8 @@ class User extends Authenticatable
          return $this->role === 'student';
      }
 
+   
+
     /**
      * The attributes that are mass assignable.
      *

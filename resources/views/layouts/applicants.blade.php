@@ -2,6 +2,7 @@
 
 @section('content')
 <table class="table">
+  @include('components.alerts')
   <thead>
     <tr>
       
@@ -18,13 +19,18 @@
                 <td>{{ $enrollment->last_name }}</td>
                 <td>{{ $enrollment->course }}</td>
                 <td>
-                  <button type="button" class="btn btn-primary btn-sm" data-userid="{{ $enrollment->user_id }}" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                  <button type="button" class="btn btn-info btn-sm" data-userid="{{ $enrollment->user_id }}" data-bs-toggle="modal" data-bs-target="#exampleModal">
                       <i class="mdi mdi-eye-circle" ></i>
-                    
-
+                     View
                   </button>
-                  <button type="button" class="btn btn-success btn-sm"><i class="mdi mdi-check-circle"></i></button>
-                  <button type="button" class="btn btn-danger btn-sm"><i class="mdi mdi-alpha-x-circle"></i></button>
+                  
+                  <form action="{{ route('approve.student', $enrollment->user_id) }}" method="POST" style="display:inline;">
+                      @csrf
+                      <button type="submit" class="btn btn-success btn-sm">
+                          <i class="mdi mdi-check-circle"></i> Approve
+                      </button>
+                  </form>
+                  <button type="button" class="btn btn-danger btn-sm"><i class="mdi mdi-alpha-x-circle"></i>Decline</button>
               
               </td>
             </tr>
@@ -46,44 +52,47 @@
       </div>
       <div class="modal-body">
         <div class="container-lg">
-          <ul class="list-group list-group-horizontal">
-            <li class="list-group-item w-50">First Name</li>
-            <li class="list-group-item w-50" id="modalFirstName"></li>
-          </ul>
-          <ul class="list-group list-group-horizontal">
-            <li class="list-group-item w-50">Middle Name</li>
-            <li class="list-group-item w-50" id="modalMiddleName"></li>
-          </ul>
-          <ul class="list-group list-group-horizontal">
-            <li class="list-group-item w-50">Last Name</li>
-            <li class="list-group-item w-50" id="modalLastName"></li>
-          </ul>
-          <ul class="list-group list-group-horizontal">
-            <li class="list-group-item w-50">Course</li>
-            <li class="list-group-item w-50" id="modalCourse"></li>
-          </ul>
-          <ul class="list-group list-group-horizontal">
-            <li class="list-group-item w-50">Age</li>
-            <li class="list-group-item w-50" id="modalAge"></li>
-          </ul>
-          <ul class="list-group list-group-horizontal">
-            <li class="list-group-item w-50">Gender</li>
-            <li class="list-group-item w-50" id="modalGender"></li>
-          </ul>
-          <ul class="list-group list-group-horizontal">
-            <li class="list-group-item w-50">Barangay</li>
-            <li class="list-group-item w-50" id="modalBarangay"></li>
-          </ul>
-          <ul class="list-group list-group-horizontal">
-            <li class="list-group-item w-50">Municipality</li>
-            <li class="list-group-item w-50" id="modalMunicipality"></li>
-          </ul>
-          <ul class="list-group list-group-horizontal">
-            <li class="list-group-item w-50">Province</li>
-            <li class="list-group-item w-50" id="modalProvince"></li>
-          </ul>
+          <div class="row gy-3">
+            <ul class="list-group list-group-horizontal">
+              <li class="list-group-item w-50">First Name</li>
+              <li class="list-group-item w-50" id="modalFirstName"></li>
+            </ul>
+            <ul class="list-group list-group-horizontal">
+              <li class="list-group-item w-50">Middle Name</li>
+              <li class="list-group-item w-50" id="modalMiddleName"></li>
+            </ul>
+            <ul class="list-group list-group-horizontal">
+              <li class="list-group-item w-50">Last Name</li>
+              <li class="list-group-item w-50" id="modalLastName"></li>
+            </ul>
+            <ul class="list-group list-group-horizontal">
+              <li class="list-group-item w-50">Course</li>
+              <li class="list-group-item w-50" id="modalCourse"></li>
+            </ul>
+            <ul class="list-group list-group-horizontal">
+              <li class="list-group-item w-50">Age</li>
+              <li class="list-group-item w-50" id="modalAge"></li>
+            </ul>
+            <ul class="list-group list-group-horizontal">
+              <li class="list-group-item w-50">Gender</li>
+              <li class="list-group-item w-50" id="modalGender"></li>
+            </ul>
+            <ul class="list-group list-group-horizontal">
+              <li class="list-group-item w-50">Barangay</li>
+              <li class="list-group-item w-50" id="modalBarangay"></li>
+            </ul>
+            <ul class="list-group list-group-horizontal">
+              <li class="list-group-item w-50">Municipality</li>
+              <li class="list-group-item w-50" id="modalMunicipality"></li>
+            </ul>
+            <ul class="list-group list-group-horizontal">
+              <li class="list-group-item w-50">Province</li>
+              <li class="list-group-item w-50" id="modalProvince"></li>
+            </ul>
+          </div>
         </div>
       </div>
+      
     </div>
   </div>
 </div>

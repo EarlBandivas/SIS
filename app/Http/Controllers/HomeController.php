@@ -12,9 +12,7 @@ class HomeController extends Controller
     {
         $user = Auth::user();
         
-        // if ($user->isAdmin()) {
-        //     return redirect('/admin/dashboard');
-        // }
+       
         if ($user->role === 'admin') {
             return redirect('/admin/dashboard');
         }
