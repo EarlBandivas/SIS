@@ -36,5 +36,10 @@ class ApproveController extends Controller
 
     return redirect()->back()->with('success', 'Student approved successfully!');
 }
-
+public function getClassList()
+{
+    $classlists = Classlist::all(); // Fetch all enrollments
+    return view('layouts.classlist', compact('classlists'));
+    
+}
 }

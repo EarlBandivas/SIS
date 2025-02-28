@@ -42,7 +42,7 @@
       </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="{{ route('applicants.index') }}">
+      <a class="nav-link" href="{{ route('classlist') }}">
         <i class="mdi mdi-account-group menu-icon"></i>
         <span class="menu-title">Class List</span>
       </a>

@@ -18,4 +18,9 @@ class ClassList extends Model
         'last_name',
         'course',
     ]; // Specify key type
+
+    public function subjects()
+    {
+        return $this->belongsToMany(Subject::class, 'classlist_subjects', 'student_id', 'subject_id');
+    }
 }

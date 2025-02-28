@@ -60,7 +60,7 @@ class EnrollmentController extends Controller
         $enrollment = Enrollment::where('user_id', $user_id)->where('user_id', auth()->id())->first();
     
         if (!$enrollment) {
-            return redirect()->back()->with('error', 'No enrollment record found.');
+            return redirect()->back()->with('error', 'No profile record found.');
         }
     
         // Update the enrollment details
@@ -88,7 +88,7 @@ public function index()
     return view('layouts.applicants', compact('enrollments'));
 }
 
-public function editProfile()
+public function profile()
 {
     $enrollments = Enrollment::where('user_id', auth()->id())->get(); // Fetch enrollments for the logged-in user
 

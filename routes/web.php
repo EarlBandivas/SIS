@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\EnrollmentController;
 use App\Http\Controllers\ApproveController;
+use App\Http\Controllers\SubjectController;
 
 
 Route::get('/', function () {
@@ -16,12 +17,16 @@ Route::get('/student/dashboard/enrollment', function () {
 })->middleware(['auth', 'verified', 'role:student'])->name('enrollment');
 
 
+Route::get('/student/dashboard/classlist', [ApproveController::class, 'getClasslist']) 
+->middleware(['auth', 'verified', 'role:admin'])->name('classlist');
 
-Route::get('/student/dashboard/profile', [EnrollmentController::class, 'editProfile'])->name('profile');
 
-// Route::get('/login', function () {
-//     return view('login');
-// })->middleware(['auth', 'verified'])->name('login');
+
+
+Route::get('/student/dashboard/profile', [EnrollmentController::class, 'profile'])->name('profile');
+
+
+
 
 Route::get('/student/dashboard', function () {
     return view('studentpage.student');
@@ -36,6 +41,11 @@ Route::get('/admin/dashboard', function () {
 Route::post('/enroll', [EnrollmentController::class, 'store'])->name('enroll.store');
 
 Route::put('/profile/update/{user_id}', [EnrollmentController::class, 'update'])->name('enrollments.update');
+
+
+
+Route::post('/assign-subjects', [SubjectController::class, 'assignSubjects'])->name('assign.subjects');
+
 
 
 
